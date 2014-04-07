@@ -10,17 +10,17 @@ public class Brasserie {
 		pays=state;
 	}
 	
-	public toString getNom()
+	public String getNom()
 	{
 		return nom;
 	}
 	
-	public toString getVille()
+	public String getVille()
 	{
 		return ville;
 	}
 	
-	public toString getPays()
+	public String getPays()
 	{
 		return pays;
 	}
