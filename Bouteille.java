@@ -1,4 +1,4 @@
-public class Bouteille extends Breuvage {
+public class Bouteille { 
 	int taille;
 	String format;
 	String bouchon;
@@ -10,7 +10,7 @@ public class Bouteille extends Breuvage {
 		Bouchon=capsule;
 	}
 	
-	public String getTaille()
+	public int getTaille()
 	{
 		return taille;
 	}
