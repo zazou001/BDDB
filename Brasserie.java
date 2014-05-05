@@ -5,9 +5,24 @@ public class Brasserie {
 	
 	public Brasserie(String name,String city,String state)
 	{
-		nom=name;
-		ville=city;
-		pays=state;
+		this.nom=name;
+		this.ville=city;
+		this.pays=state;
+	}
+	
+	public void setNom(String nom)
+	{
+		this.nom=nom;
+	}
+	
+	public void setVille(String ville)
+	{
+		this.ville=ville;
+	}
+	
+	public void setPays(String pays)
+	{
+		this.pays=pays;
 	}
 	
 	public String getNom()
