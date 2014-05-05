@@ -1,13 +1,13 @@
 public class Bouteille { 
-	int taille;
-	String format;
-	String bouchon;
+	private int taille;
+	private String format;
+	private String bouchon;
 	
 	public Bouteille(int size, String type, String capsule)
 	{
-		taille=size;
-		format=type;
-		Bouchon=capsule;
+		this.taille=size;
+		this.format=type;
+		this.bouchon=capsule;
 	}
 	
 	public int getTaille()
@@ -24,4 +24,11 @@ public class Bouteille {
 	{
 		return bouchon;
 	}
+	
+	public String toString()
+	{
+		return "La bouteille fait " + this.getTaille() + " cl, a un format "
+		+ this.getFormat() + " et un bouchon de type " + this.getBouchon() + ".";
+	}
+
 }
