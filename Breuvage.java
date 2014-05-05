@@ -71,6 +71,7 @@ public class Breuvage {
 	
 	/**
 	 * Redéfinition de la methode toString.
+	 * @return La nouvelle chaine de caracteres a afficher.
 	 * */
 	public String toString()
 	{
