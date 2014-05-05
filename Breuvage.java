@@ -4,7 +4,7 @@ public class Breuvage {
         
     public Breuvage(String type, String spec)
     {
-		fermentation=type;
+				fermentation=type;
         particularite=spec;
     }
         
@@ -13,7 +13,7 @@ public class Breuvage {
 		return fermentation;
 	}
 	   
-	    public String getParticularite)
+	    public String getParticularite()
 	{
 		return particularite;
 	}
