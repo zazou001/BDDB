@@ -44,7 +44,7 @@ public class Breuvage {
 	}
   
   /**
-   * Retourne le champ fermentation.
+   * Accesseur champ fermentation.
    * @return Le champ fermentation du breuvage.
    * */
   public String gettypeFermentation()
@@ -53,7 +53,7 @@ public class Breuvage {
 	}
 	
 	/**
-	 * Retourne la fermentation : simple/double...
+	 * Accesseur du champ fermentation : simple/double...
 	 * @return La fermentation.
 	 * */
   public String getParticularite()
@@ -61,7 +61,7 @@ public class Breuvage {
 		return this.particularite;
 	}
 	/**
-	 * Retourne la couleur du breuvage.
+	 * Accesseur couleur du breuvage.
 	 * @return La couleur du breuvage.
 	 * */
 	public String getCouleur()
