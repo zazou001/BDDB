@@ -24,4 +24,9 @@ public class Brasserie {
 	{
 		return pays;
 	}
+	
+	public String toString()
+	{
+		return "La brasserie " + this.getNom() + " se trouve a " + this.getVille() + ", ville de " + this.getPays() + ".";
+	}
 }
