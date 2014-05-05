@@ -5,10 +5,25 @@ public class Breuvage {
    
   public Breuvage(String type, String spec)
   {
-		this.fermentation=type;
-    this.particularite=spec;
+		this.fermentation = type;
+    this.particularite = spec;
   }
-        
+  
+  public void setFermentation(String fermentation)
+  {
+		this.fermentation = fermentation;
+	}
+	
+	public void setParticularite(String particularite)
+	{
+		this.particularite=particularite;
+	}
+	
+	public void setCouleur(String couleur)
+	{
+		this.couleur = couleur;
+	}
+  
   public String getFermentation()
 	{
 		return this.fermentation;
