@@ -1,10 +1,22 @@
 public class Bouteille { 
+	private int idBouteille;
 	private int taille;
 	private String format;
 	private String bouchon;
-	
-	public Bouteille(int size, String type, String capsule)
+
+	/**
+	 * createur de Bouteille
+	 * @param int bouteille: est idBouteille dans la base de donnée
+	 * @param int size: est la contenance en cL de la bouteille
+	 * @param String type: est la forme de la bouteille
+	 * @param String capsule: est le type de bouchon utilisé
+	 * 
+	 * @return un type Bouteille
+	 * 
+	**/	
+	public Bouteille(int bouteille, int size, String type, String capsule)
 	{
+		idBouteille=bouteille;
 		if(size>0)
 		{
 			this.taille=size;
@@ -16,7 +28,11 @@ public class Bouteille {
 		this.format=type;
 		this.bouchon=capsule;
 	}
-	
+		
+	/**
+	 * modificateur de taille
+	 * @param  int size: est la nouvelle taille de la bouteille
+	**/
 	public void setTaille(int size)
 	{
 		if(size>0)
@@ -25,31 +41,56 @@ public class Bouteille {
 		}
 	}
 	
+	/**
+	 * modificateur de format
+	 * @param  int size: est le nouveau format de la bouteille
+	**/
 	public void setFormat(String format)
 	{
 		this.format=format;
 	}
-	
+
+	/**
+	 * modificateur de bouchon
+	 * @param  String bouchon: est le nouveau bouchon taille de la bouteille
+	**/
 	public setBouchon(String bouchon)
 	{
 		this.bouchon=bouchon;
 	}
 	
+	/**
+	 * accesseur de taille
+	 * @return la taille de la bouteille
+	**/
 	public int getTaille()
 	{
 		return taille;
 	}
 	
+	/**
+	 * accesseur de format
+	 * @return le format de la bouteille
+	**/
 	public String getFormat()
 	{
 		return format;
 	}
 	
+	/**
+	 * accesseur de bouchon
+	 * @return le type de bouchon de la bouteille
+	**/
 	public String getBouchon()
 	{
 		return bouchon;
 	}
 	
+	/**
+	 * Redefinition de la methode toString
+	 * @return une chaine de caractere à afficher
+	 * 
+	**/
 	public String toString()
 	{
 		return "La bouteille fait " + this.getTaille() + " cl, a un format "
