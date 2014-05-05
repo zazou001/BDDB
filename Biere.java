@@ -10,12 +10,23 @@ public class Biere {
 	{
 	idBiere=biere;
 	nom=name;
-	alcool=degree;
+	if(alcool<0) alcool=degree;
+	else alcool=0;
 	idBouteille=bouteille;
 	idBrasserie=brasserie;
 	idBrevage=brevage;
 	}
 
+	public void setNom(String name)
+	{
+		this.nom = name;
+	}
+	
+		public void setAlcool(int degree)
+	{
+		this.alcool = degree;
+	}
+	
 	public String getNom()
 	{
 		return nom;
@@ -30,4 +41,5 @@ public class Biere {
 	{
 		return this.getNom() + "avec un degree d'alcool de " + this.getAlcool();
 	}
+	
 }
