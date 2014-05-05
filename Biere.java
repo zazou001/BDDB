@@ -6,9 +6,14 @@ public class Biere {
 	private int idBrasserie;
 	private int idBrevage;
 
-	public Biere(int biere, String name, String degree,int bout, int Bras, int Bre )
+	public Biere(int biere, String name, int degree,int bouteille, int brasserie, int brevage)
 	{
-
+	idBiere=biere;
+	nom=name;
+	alcool=degree;
+	idBouteille=bouteille;
+	idBrasserie=brasserie;
+	idBrevage=brevage;
 	}
 
 	public String getNom()
@@ -19,5 +24,10 @@ public class Biere {
 	public int getAlcool()
 	{
 		return alcool;
+	}
+	
+	public String toString()
+	{
+		return this.getNom() + "avec un degree d'alcool de " + this.getAlcool();
 	}
 }
