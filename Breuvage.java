@@ -1,25 +1,31 @@
 public class Breuvage {
-	String fermentation;
-    String particularite;
+	private String fermentation;/*Type de fermentation*/
+	private String particularite;/*Fermentation*/
+  private String couleur;/*Couleur du breuvage*/
+   
+  public Breuvage(String type, String spec)
+  {
+		this.fermentation=type;
+    this.particularite=spec;
+  }
         
-    public Breuvage(String type, String spec)
-    {
-				fermentation=type;
-        particularite=spec;
-    }
-        
-    public String getFermentation()
+  public String getFermentation()
 	{
-		return fermentation;
+		return this.fermentation;
 	}
 	   
-	    public String getParticularite()
+  public String getParticularite()
 	{
-		return particularite;
+		return this.particularite;
+	}
+	
+	public String getCouleur()
+	{
+		return this.couleur;
 	}
 	
 	public String toString()
 	{
-		return "la fermentation est " + this.getFermentation() + ", a pour particularité" + this.getParticularite();
+		return "la fermentation est " + this.getFermentation() + ", a pour particularité " + this.getParticularite() + " et est " + this.getCouleur() + ".";
 	}
 }
