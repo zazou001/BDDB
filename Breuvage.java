@@ -6,17 +6,18 @@ public class Breuvage {
 	private String nom;
 	private int alcool;
 	private int idBouteille;
-	private int idBrasserie;   
+	private int idBrasserie;
+	
    /**
     * Constructeur de breuvage.
     * @param type Le type de fermentation : basse/haute/sur bouteille/sur lie...
     * @param spec La fermentation : simple/double/triple...
     * @param couleur La couleur du breuvage.
     * @param  String name: est le nom de la biere
-	* @param  int degree: est le taux d'alcool de la biere
-	* @param  int bouteille: est idBouteille dans la base de donnée
-	* @param  int brasserie: est idBrasserie dans la base de donnée
-	* @param  int brevage: est idBrevage dans la base de donnée
+		* @param  int degree: est le taux d'alcool de la biere
+		* @param  int bouteille: est idBouteille dans la base de donnée
+		* @param  int brasserie: est idBrasserie dans la base de donnée
+		* @param  int brevage: est idBrevage dans la base de donnée
     * */
   public Breuvage( int brevage, String name, int degree, String type, String spec
 					,String couleur, int bouteille, int brasserie)
@@ -142,8 +143,8 @@ public class Breuvage {
 	 * Redéfinition de la methode toString.
 	 * @return La nouvelle chaine de caracteres a afficher.
 	 * */
-	public String toString()
+	/*public String toString()
 	{
 		return "la fermentation est " + this.gettypeFermentation() + ", a pour particularité " + this.getParticularite() + " et est " + this.getCouleur() + ".";
-	}
+	}*/
 }
