@@ -54,7 +54,7 @@ public class Bouteille {
 	 * modificateur de bouchon
 	 * @param  String bouchon: est le nouveau bouchon taille de la bouteille
 	**/
-	public setBouchon(String bouchon)
+	public void setBouchon(String bouchon)
 	{
 		this.bouchon=bouchon;
 	}

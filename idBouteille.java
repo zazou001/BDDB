@@ -13,7 +13,7 @@ public class idBouteille{
 		this.bottle=bottle;
 	}
 	
-	public void setIdBooteille(int id)
+	public void setIdBouteille(int id)
 	{
 		this.id=id;
 	}

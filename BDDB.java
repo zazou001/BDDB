@@ -8,8 +8,8 @@ public class BDDB{
 		System.out.println(brasserie2);
 		
 		Bouteille bouteille1,bouteille2;
-		bouteille1 = new Bouteille(75,"Alcoolique","Capsule");
-		bouteille2 = new Bouteille(100,"Test","Bouchon");
+		bouteille1 = new Bouteille(0,75,"Alcoolique","Capsule");
+		bouteille2 = new Bouteille(1,100,"Test","Bouchon");
 		System.out.println(bouteille1);
 		System.out.println(bouteille2);
 		
