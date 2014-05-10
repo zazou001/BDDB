@@ -4,6 +4,7 @@ import pkg.donnee.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 
 public class BreuvageDAO extends DAO<Breuvage> {
 	
@@ -11,16 +12,34 @@ public class BreuvageDAO extends DAO<Breuvage> {
     super(conn);
   }
 
-  public boolean create(Breuvage obj) {
-    return false;
+  public void create(Breuvage breuvage) {
+		try{
+			PreparedStatement prepareStatement = this.connect.prepareStatement(
+					"INSERT INTO 'breuvage' VALUES(?, ?, ? ,? ,?, ?, ?, ?, ? ,? ,?)");
+					prepareStatement.setInt(1, breuvage.getId());
+					prepareStatement.setString(2, breuvage.getNom());
+					prepareStatement.setInt(3, breuvage.getAlcool());
+					prepareStatement.setString(4, breuvage.getTypeFermentation());
+					prepareStatement.setString(5, breuvage.getParticularite());
+					prepareStatement.setString(6, breuvage.getCouleur());
+					prepareStatement.setInt(7, breuvage.getAnnee());
+					prepareStatement.setInt(8, breuvage.getNote());
+					prepareStatement.setString(9, breuvage.getCommentaire());
+					prepareStatement.setInt(10, breuvage.getIdBouteille());
+					prepareStatement.setInt(11, breuvage.getIdBrasserie());
+					prepareStatement.executeUpdate();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
   }
 
-  public boolean delete(Breuvage obj) {
-    return false;
+  public void delete(Breuvage obj) {
+   
   }
    
-  public boolean update(Breuvage obj) {
-    return false;
+  public void update(Breuvage obj) {
+   
   }
    
   public Breuvage find(int id) {

@@ -1,32 +1,54 @@
 package pkg.dao;
 
+import pkg.donnee.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+
 public class BrasserieDAO extends DAO<Brasserie> {
-  public BrasserieDAO(Connection conn) {
-    super(conn);
-  }
+	public BrasserieDAO(Connection conn) {
+		super(conn);
+	}
 
-  public boolean create(Brasserie obj) {
-    return false;
-  }
+	public void create(Brasserie brasserie) {
+		try{
+			PreparedStatement prepareStatement = this.connect.prepareStatement(
+					"INSERT INTO 'brasserie' VALUES(?, ?, ? ,?)");
+					prepareStatement.setInt(1, brasserie.getId());
+					prepareStatement.setString(2, brasserie.getNom());
+					prepareStatement.setString(3, brasserie.getVille());
+					prepareStatement.setString(4, brasserie.getPays());
+					prepareStatement.executeUpdate();
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
-  public boolean delete(Brasserie obj) {
-    return false;
-  }
+	public void delete(Brasserie obj) {
+
+	}
    
-  public boolean update(Brasserie obj) {
-    return false;
-  }
-   
-  public Brasserie find(int id) {
-    Brasserie brasserie = new Brasserie();      
+	public void update(Brasserie obj) {
+
+	}
+	
+	public Brasserie find(int id) {
+		Brasserie brasserie = new Brasserie();      
       
-    try {
-        ResultSet result = this.connect.createStatement().executeQuery("SELECT * FROM brasserie WHERE idBrasserie = " + id);
-		brasserie = new Brasserie(id, result.getString("nom"),
-        result.getString("ville"), result.getString("pays");         
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
-    return brasserie;
-  }
+		try {
+			ResultSet result = this.connect.createStatement().executeQuery(
+					"SELECT * FROM brasserie WHERE idBrasserie = " + id);
+			brasserie = new Brasserie(
+				result.getInt("idBrasserie"),
+				result.getString("nom"),
+				result.getString("ville"),
+				result.getString("pays"));         
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return brasserie;
+	}
 }
