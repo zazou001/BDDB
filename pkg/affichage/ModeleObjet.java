@@ -18,7 +18,7 @@ public class ModeleObjet extends AbstractTableModel {
     
     public ModeleObjet() {
         super();
-        //bieres.add(new Biere(breuvages,brasseries,bieres.size()));
+       // bieres.add(new Biere(breuvages,brasseries,bieres.size()));
     }
  
     public int getRowCount() {
