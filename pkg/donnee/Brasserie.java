@@ -13,14 +13,15 @@ public class Brasserie {
 	 * @param state L'Etat dans lequel se trouve la brasserie.
 	 * @return Un objet de type brasserie.
 	 * */
-	public Brasserie(int brasserie, String name, String city, String state)
+	public Brasserie(int idBrasserie, String nom, String ville, String pays)
 	{
-		this.idBrasserie=brasserie;
-		this.nom=name;
-		this.ville=city;
-		this.pays=state;
+		this.idBrasserie=idBrasserie;
+		this.nom=nom;
+		this.ville=ville;
+		this.pays=pays;
 	}
 	
+	public Brasserie(){}
 	/**
 	 * Modifie le nom de la brasserie.
 	 * @param nom Le nouveau nom de la brasserie.
