@@ -29,7 +29,9 @@ public class BrasserieDAO extends DAO<Brasserie> {
 	public void delete(Brasserie brasserie) {
 		try {
 			this.connect.createStatement()
-				.executeUpdate("DELETE FROM 'brasserie' WHERE idBrasserie =" + brasserie.getId());
+				.executeUpdate(
+				"DELETE FROM 'brasserie' WHERE idBrasserie =" + brasserie.getId() + "; " +
+				"UPDATE 'breuvage' set idBrasserie = null where idBrasserie =" + brasserie.getId() + "; ");
 		}
 		catch (Exception e) {
 			e.printStackTrace();

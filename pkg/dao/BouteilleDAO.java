@@ -30,7 +30,8 @@ public class BouteilleDAO extends DAO<Bouteille> {
 	public void delete(Bouteille bouteille) {
 		try {
 		this.connect.createStatement()
-				.executeUpdate("DELETE FROM 'bouteille' WHERE idBouteille =" + bouteille.getId());
+				.executeUpdate("DELETE FROM 'bouteille' WHERE idBouteille =" + bouteille.getId()+ "; " +
+				"UPDATE 'breuvage' set idBouteille = null where idBouteille =" + bouteille.getId() + "; ");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
