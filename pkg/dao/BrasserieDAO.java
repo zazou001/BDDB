@@ -14,7 +14,7 @@ public class BrasserieDAO extends DAO<Brasserie> {
 	public void create(Brasserie brasserie) {
 		try{
 			PreparedStatement prepareStatement = this.connect.prepareStatement(
-					"INSERT INTO 'brasserie' VALUES(?, ?, ? ,?)");
+					"INSERT INTO 'brasserie' VALUES(?, ?, ? ,?);");
 					prepareStatement.setInt(1, brasserie.getId());
 					prepareStatement.setString(2, brasserie.getNom());
 					prepareStatement.setString(3, brasserie.getVille());
@@ -26,8 +26,14 @@ public class BrasserieDAO extends DAO<Brasserie> {
 		}
 	}
 
-	public void delete(Brasserie obj) {
-
+	public void delete(Brasserie brasserie) {
+		try {
+			this.connect.createStatement()
+				.executeUpdate("DELETE FROM 'brasserie' WHERE idBrasserie =" + brasserie.getId());
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
    
 	public void update(Brasserie obj) {

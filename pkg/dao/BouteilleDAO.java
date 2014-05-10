@@ -15,7 +15,7 @@ public class BouteilleDAO extends DAO<Bouteille> {
 	public void create(Bouteille bouteille) {
 		try{
 			PreparedStatement prepareStatement = this.connect.prepareStatement(
-					"INSERT INTO 'bouteille' VALUES(?, ?, ? ,?)");
+					"INSERT INTO 'bouteille' VALUES(?, ?, ? ,?);");
 					prepareStatement.setInt(1, bouteille.getId());
 					prepareStatement.setInt(2, bouteille.getTaille());
 					prepareStatement.setString(3, bouteille.getFormat());
@@ -27,8 +27,14 @@ public class BouteilleDAO extends DAO<Bouteille> {
 		}
 	}
 
-	public void delete(Bouteille obj) {
-   
+	public void delete(Bouteille bouteille) {
+		try {
+		this.connect.createStatement()
+				.executeUpdate("DELETE FROM 'bouteille' WHERE idBouteille =" + bouteille.getId());
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
    
 	public void update(Bouteille obj) {
