@@ -9,27 +9,29 @@ import java.sql.Statement;
 
 public class Connexion {
 	private String DBPath = "";
-	private Connection connection = null;
+	private Connection connect = null;
 	private Statement statement = null;
 
 	public Connexion(String dBPath) {
 		DBPath = dBPath;
 	}
-
-	public void connect() {
-		try {
-			Class.forName("org.sqlite.JDBC");
-			connection = DriverManager.getConnection("jdbc:sqlite:" + DBPath);
-			statement = connection.createStatement();
-			System.out.println("Connexion a " + DBPath + " avec succes");
-		} catch (ClassNotFoundException notFoundException) {
-			notFoundException.printStackTrace();
-			System.out.println("Erreur de connecxion");
-		} catch (SQLException sqlException) {
-			sqlException.printStackTrace();
-			System.out.println("Erreur de connecxion");
-		}
-	}
+	
+	
+    public Connection connect() {
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connect = DriverManager.getConnection("jdbc:sqlite:" + DBPath);
+            statement = connect.createStatement();
+        } catch (ClassNotFoundException notFoundException) {
+            notFoundException.printStackTrace();
+            System.out.println("Erreur de connection");
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+            System.out.println("Erreur de connection");
+        }
+        System.out.println("Connection a " + DBPath + " avec succès");
+        return connect;
+    }
 
 	public void close() {
 		try {
