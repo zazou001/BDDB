@@ -16,21 +16,22 @@ public class Bouteille {
 	 * @return un type Bouteille
 	 * 
 	**/	
-	public Bouteille(int bouteille, int size, String type, String capsule)
+	public Bouteille(int idBouteille, int taille, String format, String bouchon)
 	{
-		idBouteille=bouteille;
+		idBouteille=idBouteille;
 		if(size>0)
 		{
-			this.taille=size;
+			this.taille=taille;
 		}
 		else
 		{
 			this.taille=0;
 		}
-		this.format=type;
-		this.bouchon=capsule;
+		this.format=format;
+		this.bouchon=bouchon;
 	}
 		
+	public Bouteille(){}
 	/**
 	 * modificateur de taille
 	 * @param  int size: est la nouvelle taille de la bouteille
