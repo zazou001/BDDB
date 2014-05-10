@@ -18,8 +18,8 @@ public class Bouteille {
 	**/	
 	public Bouteille(int idBouteille, int taille, String format, String bouchon)
 	{
-		idBouteille=idBouteille;
-		if(size>0)
+		this.idBouteille=idBouteille;
+		if(taille>0)
 		{
 			this.taille=taille;
 		}
@@ -60,6 +60,15 @@ public class Bouteille {
 	public void setBouchon(String bouchon)
 	{
 		this.bouchon=bouchon;
+	}
+	
+	/**
+	 * accesseur de id
+	 * @return la id de la bouteille
+	**/
+	public int getId()
+	{
+		return idBouteille;
 	}
 	
 	/**

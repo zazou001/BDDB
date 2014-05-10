@@ -29,8 +29,7 @@ public class Breuvage {
   {
 	this.idBrevage=idBrevage;
 	this.nom=nom;
-	if(alcool<0) this.alcool=degree;
-	else this.alcool=0;
+	this.alcool=degree;
 	this.typefermentation = typefermentation;
     this.particularite = particularite;
     this.couleur = couleur;
@@ -113,7 +112,7 @@ public class Breuvage {
    * Accesseur champ fermentation.
    * @return Le champ fermentation du breuvage.
    * */
-  public String gettypeFermentation()
+  public String getTypeFermentation()
 	{
 		return this.typefermentation;
 	}
@@ -185,6 +184,34 @@ public class Breuvage {
 		return idBrevage;
 	}
 	
+		/**
+	 * accesseur du commentaire
+	 * @return le commentaire sur la biere
+	 * 
+	**/
+	public String getCommentaire()
+	{
+		return commentaire;
+	}
+		/**
+	 * accesseur de l'idBouteille
+	 * @return l'idBouteille de la biere
+	 * 
+	**/
+	public int getIdBouteille()
+	{
+		return idBouteille;
+	}
+		/**
+	 * accesseur de l'idBrasserie
+	 * @return l'idBrasserie de la biere
+	 * 
+	**/
+	public int getIdBrasserie()
+	{
+		return idBrasserie;
+	}
+	
 	/**
 	 * Redefinition de la methode toString
 	 * @return une chaine de caractere à afficher
@@ -194,7 +221,7 @@ public class Breuvage {
 	{
 		return this.getNom() + "est une biere "+ this.getCouleur() + 
 		"avec un taux d'alcool de " + this.getAlcool() + ". Sa fermentation est " +
-		 this.gettypeFermentation() + ", a pour particularité " + this.getParticularite();
+		 this.getTypeFermentation() + ", a pour particularité " + this.getParticularite();
 	}
 	
 }

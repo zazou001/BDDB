@@ -50,6 +50,15 @@ public class Brasserie {
 	}
 	
 	/**
+	 * Accesseur du nom du pays ou se trouve la brasserie.
+	 * @return Le nom du pays ou se trouve la brasserie.
+	 * */
+	public int getId()
+	{
+		return idBrasserie;
+	}
+	
+	/**
 	 * Accesseur du nom de la brasserie.
 	 * @return Le nom de la brasserie.
 	 * */
