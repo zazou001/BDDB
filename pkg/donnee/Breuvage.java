@@ -2,13 +2,14 @@ package pkg.donnee;
 
 public class Breuvage {
 	private int idBrevage;
+	private String nom;
+	private int alcool;
 	private String typefermentation;/*Type de fermentation*/
 	private String particularite;/*Fermentation*/
 	private String couleur;/*Couleur du breuvage*/
-	private String nom;
 	private int annee;
 	private int note;
-	private int alcool;
+	private String commentaire;
 	private int idBouteille;
 	private int idBrasserie;   
    /**
@@ -22,23 +23,25 @@ public class Breuvage {
 	* @param  int brasserie: est idBrasserie dans la base de donnée
 	* @param  int brevage: est idBrevage dans la base de donnée
     * */
-  public Breuvage( int brevage, String name, int degree, String type, String spec
-					,String couleur, int annee, int note, int bouteille, int brasserie)
+  public Breuvage( int idBrevage, String nom, int degree, String typefermentation,
+					String particularite, String couleur, int annee, int note, 
+					String commentaire, int idBouteille, int idBrasserie)
   {
-	this.typefermentation = type;
-    this.particularite = spec;
+	this.idBrevage=idBrevage;
+	this.nom=nom;
+	if(alcool<0) this.alcool=degree;
+	else this.alcool=0;
+	this.typefermentation = typefermentation;
+    this.particularite = particularite;
     this.couleur = couleur;
-    this.idBrevage=brevage;
     this.annee=annee;
-	this.nom=name;
-		if(alcool<0) this.alcool=degree;
-		else this.alcool=0;
 	this.note=note;
-	this.idBouteille=bouteille;
-	this.idBrasserie=brasserie;
-
+	this.commentaire=commentaire;
+	this.idBouteille=idBouteille;
+	this.idBrasserie=idBrasserie;
   }
   
+  public Breuvage(){}
   	/**
 	 * modificateur de nom
 	 * @param  String name: est le nouveau nom de la biere
@@ -153,7 +156,7 @@ public class Breuvage {
 	}
 	
 	 /**
-	 * modificateur de note
+	 * accesseur de note
 	 * @return la note de la biere
 	 * 
 	**/
@@ -163,13 +166,23 @@ public class Breuvage {
 	}
 	
 	/**
-	 * modificateur de note
-	 * @return la note de la biere
+	 * accesseur de l'année
+	 * @return l'année de la biere
 	 * 
 	**/
 	public int getAnnee()
 	{
 		return annee;
+	}
+	
+	/**
+	 * accesseur de l'id
+	 * @return l'id de la biere
+	 * 
+	**/
+	public int getId()
+	{
+		return idBrevage;
 	}
 	
 	/**
