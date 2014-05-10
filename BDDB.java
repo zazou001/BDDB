@@ -1,16 +1,19 @@
-import affichage.*;
-import donnee.*;
+//import pkg.affichage.*;
+import pkg.donnee.*;
+import pkg.connection.*;
+import pkg.dao.*;
 
 public class BDDB{
 	
 	public static void main(String[] args)
-	
 	{
-		ModeleObjet.listBouteille("BDD/Bouteille.txt");
-		ModeleObjet.listBrasserie("BDD/Brasserie.txt");
-		ModeleObjet.listBreuvage("BDD/Breuvage.txt");	
-		new Fenetre().setVisible(true);
+        Connexion connexion = new Connexion("biere.bd");
+		DAO<Breuvage> breuvageDao = new BreuvageDAO(connexion.connect());
+        Breuvage breuvage = breuvageDao.find(2);
+		System.out.println("Biere N°" +breuvage.getId() +" - " + breuvage.getNom() + " " + breuvage.getAlcool());
+
+        connexion.close();	
+		//new Fenetre().setVisible(true);
 	}
-	
 }
 		
