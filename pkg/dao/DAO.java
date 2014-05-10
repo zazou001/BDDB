@@ -1,7 +1,9 @@
 package pkg.dao;
 
 import java.sql.Connection;
-import com.sdz.connection.SdzConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import pkg.connection.*;
 
 public abstract class DAO<T> {
   protected Connection connect = null;
