@@ -18,7 +18,7 @@ public class BreuvageDAO extends DAO<Breuvage> {
 					"INSERT INTO 'breuvage' VALUES(?, ?, ? ,? ,?, ?, ?, ?, ? ,? ,?);");
 					prepareStatement.setInt(1, breuvage.getId());
 					prepareStatement.setString(2, breuvage.getNom());
-					prepareStatement.setInt(3, breuvage.getAlcool());
+					prepareStatement.setFloat(3, breuvage.getAlcool());
 					prepareStatement.setString(4, breuvage.getTypeFermentation());
 					prepareStatement.setString(5, breuvage.getParticularite());
 					prepareStatement.setString(6, breuvage.getCouleur());

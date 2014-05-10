@@ -4,6 +4,8 @@ import pkg.donnee.*;
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 public class Fenetre extends JFrame {
 	
@@ -14,13 +16,15 @@ public class Fenetre extends JFrame {
         //super();
  
         setTitle("BDDB");
-        setLocationRelativeTo(null);
+        
         setSize(400, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
+		setLocationRelativeTo(null);
         tableau = new JTable(modele);
  
         getContentPane().add(new JScrollPane(tableau), BorderLayout.CENTER);
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tableau.getModel());
+        tableau.setRowSorter(sorter);
  
         JPanel boutons = new JPanel();
 		boutons.add(new JButton(new InfoAction()));
@@ -38,7 +42,7 @@ public class Fenetre extends JFrame {
         }
 		/*a faire quand on appuis sur le bouton info*/
         public void actionPerformed(ActionEvent e) { 
-           // modele.addBiere(new Biere("Megan", "Sami", "green", 5, 1812, 20));
+           new Info();
         }
     }
     
@@ -48,7 +52,7 @@ public class Fenetre extends JFrame {
         }
 		/*a faire quand on appuis sur le bouton ajouté*/
         public void actionPerformed(ActionEvent e) { 
-            //modele.addBiere(new Biere("Megan", "Sami", "green", 5, 1812, 20));
+            new Add();
         }
     }
     
@@ -59,7 +63,7 @@ public class Fenetre extends JFrame {
 		/*a faire quand on appuis sur le bouton modifier*/
         public void actionPerformed(ActionEvent e) { 
 			int[] selection = tableau.getSelectedRows(); /*selection de la ligne du tableau*/
-            
+            new Modif();
            /* for(int i = selection.length - 1; i >= 0; i--){
                 modele.modifBiere(selection[i]);
             }*/
