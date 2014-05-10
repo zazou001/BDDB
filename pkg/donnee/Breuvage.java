@@ -3,7 +3,7 @@ package pkg.donnee;
 public class Breuvage {
 	private int idBrevage;
 	private String nom;
-	private int alcool;
+	private float alcool;
 	private String typefermentation;/*Type de fermentation*/
 	private String particularite;/*Fermentation*/
 	private String couleur;/*Couleur du breuvage*/
@@ -18,12 +18,12 @@ public class Breuvage {
     * @param spec La fermentation : simple/double/triple...
     * @param couleur La couleur du breuvage.
     * @param  String name: est le nom de la biere
-	* @param  int degree: est le taux d'alcool de la biere
+	* @param  float degree: est le taux d'alcool de la biere
 	* @param  int bouteille: est idBouteille dans la base de donnée
 	* @param  int brasserie: est idBrasserie dans la base de donnée
 	* @param  int brevage: est idBrevage dans la base de donnée
     * */
-  public Breuvage( int idBrevage, String nom, int degree, String typefermentation,
+  public Breuvage( int idBrevage, String nom, float degree, String typefermentation,
 					String particularite, String couleur, int annee, int note, 
 					String commentaire, int idBouteille, int idBrasserie)
   {
@@ -83,7 +83,7 @@ public class Breuvage {
 	 * @param  int alcool: est le nouveau taux d'alcool
 	 * 
 	**/
-		public void setAlcool(int degree)
+		public void setAlcool(float degree)
 	{
 		this.alcool = degree;
 	}
@@ -149,7 +149,7 @@ public class Breuvage {
 	 * @return le taux d'alcool
 	 * 
 	**/
-	public int getAlcool()
+	public float getAlcool()
 	{
 		return alcool;
 	}

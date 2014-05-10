@@ -6,12 +6,12 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 
 public class Fenetre extends JFrame {
-	private ModeleObjet modele = new ModeleObjet();
+	
     private JTable tableau;
   
-	public Fenetre()
+	public Fenetre(ModeleObjet modele)
 	{
-        super();
+        //super();
  
         setTitle("BDDB");
         setLocationRelativeTo(null);
@@ -60,9 +60,9 @@ public class Fenetre extends JFrame {
         public void actionPerformed(ActionEvent e) { 
 			int[] selection = tableau.getSelectedRows(); /*selection de la ligne du tableau*/
             
-            for(int i = selection.length - 1; i >= 0; i--){
+           /* for(int i = selection.length - 1; i >= 0; i--){
                 modele.modifBiere(selection[i]);
-            }
+            }*/
         }
     }
 
@@ -74,9 +74,9 @@ public class Fenetre extends JFrame {
         public void actionPerformed(ActionEvent e) {
             int[] selection = tableau.getSelectedRows(); /*selection de la ligne du tableau*/
             
-            for(int i = selection.length - 1; i >= 0; i--){
+            /*for(int i = selection.length - 1; i >= 0; i--){
                 modele.removeBiere(selection[i]);
-            }
+            }*/
         }
     }
 	

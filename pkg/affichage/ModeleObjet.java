@@ -1,24 +1,24 @@
 package pkg.affichage;
 
 import pkg.donnee.*;
+import pkg.dao.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.io.*;
-import java.util.regex.Pattern;
-import java.util.Scanner;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModeleObjet extends AbstractTableModel {
 	
-
+	private BiereDAO biereDao = new BiereDAO();
 	private List<Biere> bieres = new ArrayList<Biere>();
 	
     private final String[] entetes = {"Nom", "Brasserie", "Couleur", "Alcool", "Année", "Note"};
     
-    public ModeleObjet() {
-        super();
-       // bieres.add(new Biere(breuvages,brasseries,bieres.size()));
+    public ModeleObjet(Connection connect) {
+		bieres=biereDao.find(connect);
+       
     }
  
     public int getRowCount() {
@@ -53,19 +53,19 @@ public class ModeleObjet extends AbstractTableModel {
     }
  
     public void addBiere(Biere biere) {
-        bieres.add(biere);
+        /*bieres.add(biere);
  
-        fireTableRowsInserted(bieres.size() -1, bieres.size() -1);
+        fireTableRowsInserted(bieres.size() -1, bieres.size() -1);*/
     }
     
     public void modifBiere(int rowIndex) {
-        bieres.get(rowIndex).setNote(bieres.get(rowIndex).getNote()+1);
-		fireTableRowsUpdated(rowIndex, rowIndex);
+        /*bieres.get(rowIndex).setNote(bieres.get(rowIndex).getNote()+1);
+		fireTableRowsUpdated(rowIndex, rowIndex);*/
     }
     
     public void removeBiere(int rowIndex) {
-        bieres.remove(rowIndex);
+        /*bieres.remove(rowIndex);
  
-        fireTableRowsDeleted(rowIndex, rowIndex);
+        fireTableRowsDeleted(rowIndex, rowIndex);*/
     }
 }
