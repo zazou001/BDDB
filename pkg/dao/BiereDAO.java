@@ -22,7 +22,7 @@ public class BiereDAO extends DAO<Biere> {
 	{
 		try {
 		this.connect.createStatement().executeUpdate(
-					"UPDATE '"+ table +"' set "+ colonne +" = '" + champs + "'WHERE idBreuvage = " + id );
+					"UPDATE '"+ table +"' set "+ colonne +" = " + champs +" WHERE id" + table + " = " + id );
 		}
 		catch (Exception e) {
 			e.printStackTrace();
