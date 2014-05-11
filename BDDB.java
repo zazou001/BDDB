@@ -9,14 +9,13 @@ public class BDDB{
 	
 	public static void main(String[] args)
 	{
-		
-        Connexion connexion = new Connexion("biere.bd");
-        Connection connect = connexion.connect();
-        ModeleObjet modele = new ModeleObjet(connect);
+		Connexion connexion = new Connexion("biere.bd");
 
+		DAO<Biere> biereDao = new BiereDAO(connexion.connect());
+		ModeleObjet modele = new ModeleObjet(biereDao);
+        
 		new Fenetre(modele).setVisible(true);
         connexion.close();	
-		//
 	}
 }
 		
