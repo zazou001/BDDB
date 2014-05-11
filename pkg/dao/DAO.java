@@ -3,6 +3,8 @@ package pkg.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import pkg.connection.*;
 
 public abstract class DAO<T> {
@@ -31,7 +33,7 @@ public abstract class DAO<T> {
   * @param obj
   * @return boolean
   */
-  public abstract void update(T obj);
+  public abstract void update(String table, String colonne, Object champs, int id);
 
   /**
   * Méthode de recherche des informations
@@ -39,4 +41,10 @@ public abstract class DAO<T> {
   * @return T
   */
   public abstract T find(int id);
+   
+   /**
+  * Méthode de recherche de toutes les informations
+  * @return List<T>
+  */
+  public abstract List<T> findAll();
 }

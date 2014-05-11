@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BreuvageDAO extends DAO<Breuvage> {
 	
@@ -44,11 +46,12 @@ public class BreuvageDAO extends DAO<Breuvage> {
 		}
 	}
    
-	public void update(Breuvage breuvage) {
+	public void update(String table, String colonne, Object champs, int id) {
 
 	}
    
-	public Breuvage find(int id) {
+	public Breuvage find(int id) 
+	{
 		Breuvage breuvage = new Breuvage();      
       
 		try {
@@ -66,6 +69,33 @@ public class BreuvageDAO extends DAO<Breuvage> {
 				result.getString("commentaire"),
 				result.getInt("idBouteille"),
 				result.getInt("idBrasserie"));
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return breuvage;
+	}
+	
+	public List<Breuvage> findAll()
+	{
+		List<Breuvage> breuvage = new ArrayList<Breuvage>();      
+      
+		try {
+			ResultSet result = this.connect.createStatement()
+				.executeQuery("SELECT * FROM breuvage");
+			while(result.next())
+				breuvage.add(new Breuvage(
+					result.getInt("idBreuvage"), 
+					result.getString("nom"),
+					result.getInt("alcool"),
+					result.getString("typefermentation"),
+					result.getString("particularite"),
+					result.getString("couleur"),
+					result.getInt("annee"),
+					result.getInt("note"),
+					result.getString("commentaire"),
+					result.getInt("idBouteille"),
+					result.getInt("idBrasserie")));     
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();

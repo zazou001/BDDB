@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BrasserieDAO extends DAO<Brasserie> {
 	public BrasserieDAO(Connection conn) {
@@ -38,7 +40,7 @@ public class BrasserieDAO extends DAO<Brasserie> {
 		}
 	}
    
-	public void update(Brasserie obj) {
+	public void update(String table, String colonne, Object champs, int id) {
 
 	}
 	
@@ -53,6 +55,26 @@ public class BrasserieDAO extends DAO<Brasserie> {
 				result.getString("nom"),
 				result.getString("ville"),
 				result.getString("pays"));         
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return brasserie;
+	}
+	
+	public List<Brasserie> findAll() 
+	{
+		List<Brasserie> brasserie = new ArrayList<Brasserie>();      
+      
+		try {
+			ResultSet result = this.connect.createStatement()
+				.executeQuery("SELECT * FROM brasserie");
+			while(result.next())
+				brasserie.add(new Brasserie(
+					result.getInt("idBrasserie"),
+					result.getString("nom"),
+					result.getString("ville"),
+					result.getString("pays")));    
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();

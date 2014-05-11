@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BouteilleDAO extends DAO<Bouteille> {
 	
@@ -38,20 +40,41 @@ public class BouteilleDAO extends DAO<Bouteille> {
 		}
 	}
    
-	public void update(Bouteille obj) {
-
-	}
+	public void update(String table, String colonne, Object champs, int id) {}
    
 	public Bouteille find(int id) {
 		Bouteille bouteille = new Bouteille();      
       
 		try {
-			ResultSet result = this.connect.createStatement().executeQuery("SELECT * FROM bouteille WHERE idBouteille = " + id);
+			ResultSet result = 
+				this.connect.createStatement().executeQuery(
+					"SELECT * FROM bouteille WHERE idBouteille = " + id);
 			bouteille = new Bouteille(
 				result.getInt("idBouteille"),
 				result.getInt("taille"),
 				result.getString("format"),
 				result.getString("bouchon"));         
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bouteille;
+	}
+	
+	public List<Bouteille> findAll()
+	{
+		List<Bouteille> bouteille = new ArrayList<Bouteille>();      
+      
+		try {
+			ResultSet result = 
+				this.connect.createStatement().executeQuery(
+					"SELECT * FROM bouteille");
+			while(result.next())
+				bouteille.add(new Bouteille(
+					result.getInt("idBouteille"),
+					result.getInt("taille"),
+					result.getString("format"),
+					result.getString("bouchon")));        
 		} 
 		catch (SQLException e) {
 			e.printStackTrace();
