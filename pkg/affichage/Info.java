@@ -1,38 +1,22 @@
 package pkg.affichage;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener; 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
  
-public class Info extends JFrame {
+public class Info extends JPanel {
 	
-	private JPanel container = new JPanel();
-	private JTextField jtf = new JTextField("Valeur par défaut");
-	private JLabel label = new JLabel("Un JTextField");
-	
-	public Info(){
-		this.setTitle("Information");
-		this.setSize(300, 300);
-		this.setLocationRelativeTo(null);
-		container.setBackground(Color.white);
-		container.setLayout(new BorderLayout());
-		JPanel top = new JPanel();
-		Font police = new Font("Arial", Font.BOLD, 14);
-		jtf.setFont(police);
-		jtf.setPreferredSize(new Dimension(150, 30));
-		jtf.setForeground(Color.BLUE);
-		top.add(label);
-		top.add(jtf);
-		container.add(top, BorderLayout.NORTH);
-		this.setContentPane(container);
-		this.setVisible(true);         
+	public void paintComponent(Graphics g){
+		try {
+			Image img = ImageIO.read(new File("image/1.jpg"));
+			g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}                
 	}
 }

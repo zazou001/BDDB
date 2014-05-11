@@ -10,18 +10,18 @@ import javax.swing.table.TableRowSorter;
 public class Fenetre extends JFrame {
 	
     private JTable tableau;
-  
+	private ModeleObjet Modele;
+	
 	public Fenetre(ModeleObjet modele)
 	{
-        //super();
- 
+			
         setTitle("BDDB");
-        
-        setSize(400, 400);
+        setSize(800, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+		Modele = modele;
+        
         tableau = new JTable(modele);
- 
         getContentPane().add(new JScrollPane(tableau), BorderLayout.CENTER);
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(tableau.getModel());
         tableau.setRowSorter(sorter);
@@ -42,11 +42,15 @@ public class Fenetre extends JFrame {
         }
 		/*a faire quand on appuis sur le bouton info*/
         public void actionPerformed(ActionEvent e) { 
-           new Info();
-        }
+			int[] selection = tableau.getSelectedRows(); /*selection de la ligne du tableau*/
+            
+            for(int i = selection.length - 1; i >= 0; i--){
+           new Panel("Information", selection[i]);
+			}
+		}	
     }
     
-     private class AddAction extends AbstractAction {
+    private class AddAction extends AbstractAction {
         private AddAction() {
             super("Ajouter");/* nom sur le bouton*/
         }
@@ -63,10 +67,10 @@ public class Fenetre extends JFrame {
 		/*a faire quand on appuis sur le bouton modifier*/
         public void actionPerformed(ActionEvent e) { 
 			int[] selection = tableau.getSelectedRows(); /*selection de la ligne du tableau*/
-            new Modif();
-           /* for(int i = selection.length - 1; i >= 0; i--){
-                modele.modifBiere(selection[i]);
-            }*/
+            //new Modif();
+			for(int i = selection.length - 1; i >= 0; i--){
+                //modele.modifBiere(selection[i]);
+            }
         }
     }
 
@@ -78,9 +82,10 @@ public class Fenetre extends JFrame {
         public void actionPerformed(ActionEvent e) {
             int[] selection = tableau.getSelectedRows(); /*selection de la ligne du tableau*/
             
-            /*for(int i = selection.length - 1; i >= 0; i--){
-                modele.removeBiere(selection[i]);
-            }*/
+            for(int i = selection.length - 1; i >= 0; i--){
+				System.out.println(tableau.getSelectedRows());
+                Modele.removeBiere(selection[i]);
+            }
         }
     }
 	

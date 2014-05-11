@@ -16,7 +16,7 @@ public class Add extends JFrame {
 	
 	private JPanel container = new JPanel();
 	private JTextField jtf = new JTextField("Valeur par défaut");
-	private JLabel label = new JLabel("Un JTextField");
+	private JLabel label = new JLabel("Nom biere");
 	
 	public Add(){
 		this.setTitle("Ajouter");
@@ -31,7 +31,7 @@ public class Add extends JFrame {
 		jtf.setForeground(Color.BLUE);
 		top.add(label);
 		top.add(jtf);
-		container.add(top, BorderLayout.NORTH);
+		container.add(top, BorderLayout.WEST);
 		this.setContentPane(container);
 		this.setVisible(true);
 	}
