@@ -10,15 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModeleObjet extends AbstractTableModel {
-	
-	private BiereDAO biereDao = new BiereDAO();
+	private DAO<Biere> BieresDao;
 	private List<Biere> bieres = new ArrayList<Biere>();
 	
     private final String[] entetes = {"Nom", "Brasserie", "Couleur", "Alcool", "Année", "Note"};
     
-    public ModeleObjet(Connection connect) {
-		bieres=biereDao.find(connect);
-       
+    public ModeleObjet(DAO<Biere> biereDao) {
+
+	BieresDao = biereDao;
+	bieres = biereDao.findAll();
+	
     }
  
     public int getRowCount() {
@@ -38,7 +39,7 @@ public class ModeleObjet extends AbstractTableModel {
             case 0:
                 return bieres.get(rowIndex).getNom();
             case 1:
-                return bieres.get(rowIndex).getBrasserie();
+                return bieres.get(rowIndex).getNomBrasserie();
             case 2:
                 return bieres.get(rowIndex).getCouleur();
             case 3:
@@ -50,6 +51,42 @@ public class ModeleObjet extends AbstractTableModel {
             default:
                 return null; //Ne devrait jamais arriver
         }
+    }
+    
+	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+		if(aValue != null){
+            //Biere biere = ;
+
+            switch(columnIndex){
+                case 0:
+                    bieres.get(rowIndex).setNom((String)aValue, BieresDao);
+                    bieres = BieresDao.findAll();
+                    break;
+                case 1:
+                   bieres.get(rowIndex).setNomBrasserie((String)aValue, BieresDao);
+                   bieres = BieresDao.findAll();
+                    break;
+                case 2:
+                    bieres.get(rowIndex).setCouleur((String)aValue, BieresDao);
+                    bieres = BieresDao.findAll();
+                    break;
+                case 3:
+                    bieres.get(rowIndex).setAlcool((int)aValue, BieresDao);
+                    bieres = BieresDao.findAll();
+                    break;
+                case 4:
+                    bieres.get(rowIndex).setAnnee((int)aValue, BieresDao);
+                    bieres = BieresDao.findAll();
+                    break;
+                case 5:
+					bieres.get(rowIndex).setNote((int)aValue, BieresDao);
+					bieres = BieresDao.findAll();
+            }
+        }
+    }
+    
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return true; //Toutes les cellules éditables
     }
  
     public void addBiere(Biere biere) {
