@@ -16,13 +16,13 @@ public class BiereDAO extends DAO<Biere> {
 
 	public void create(Biere biere) {}
 
-	public void delete(Biere biere) {}
+	public void delete(int id) {}
    
 	public void update(String table, String colonne, Object champs, int id) 
 	{
 		try {
 		this.connect.createStatement().executeUpdate(
-					"UPDATE '"+ table +"' set "+ colonne +" = " + champs +" WHERE id" + table + " = " + id );
+			"UPDATE '"+ table +"' set "+ colonne +" = " + champs +" WHERE id" + table + " = " + id );
 		}
 		catch (Exception e) {
 			e.printStackTrace();

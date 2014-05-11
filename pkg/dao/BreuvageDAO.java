@@ -36,10 +36,10 @@ public class BreuvageDAO extends DAO<Breuvage> {
 		}
 	}
 
-	public void delete(Breuvage breuvage) {
+	public void delete(int id) {
 		try {
 		this.connect.createStatement()
-				.executeUpdate("DELETE FROM 'breuvage' WHERE idBreuvage =" + breuvage.getId());
+				.executeUpdate("DELETE FROM 'breuvage' WHERE idBreuvage =" + id);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

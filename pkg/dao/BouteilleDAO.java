@@ -29,11 +29,11 @@ public class BouteilleDAO extends DAO<Bouteille> {
 		}
 	}
 
-	public void delete(Bouteille bouteille) {
+	public void delete(int id) {
 		try {
 		this.connect.createStatement()
-				.executeUpdate("DELETE FROM 'bouteille' WHERE idBouteille =" + bouteille.getId()+ "; " +
-				"UPDATE 'breuvage' set idBouteille = null where idBouteille =" + bouteille.getId() + "; ");
+				.executeUpdate("DELETE FROM 'bouteille' WHERE idBouteille =" + id + "; " +
+				"UPDATE 'breuvage' set idBouteille = null where idBouteille =" + id + "; ");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
