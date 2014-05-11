@@ -1,7 +1,7 @@
 package pkg.donnee;
 
 public class Breuvage {
-	private int idBrevage;
+	private int idBreuvage;
 	private String nom;
 	private float alcool;
 	private String typefermentation;/*Type de fermentation*/
@@ -23,11 +23,11 @@ public class Breuvage {
 	* @param  int brasserie: est idBrasserie dans la base de donnée
 	* @param  int brevage: est idBrevage dans la base de donnée
     * */
-  public Breuvage( int idBrevage, String nom, float degree, String typefermentation,
+  public Breuvage( int idBreuvage, String nom, float degree, String typefermentation,
 					String particularite, String couleur, int annee, int note, 
 					String commentaire, int idBouteille, int idBrasserie)
   {
-	this.idBrevage=idBrevage;
+	this.idBreuvage=idBreuvage;
 	this.nom=nom;
 	this.alcool=degree;
 	this.typefermentation = typefermentation;
@@ -39,6 +39,10 @@ public class Breuvage {
 	this.idBouteille=idBouteille;
 	this.idBrasserie=idBrasserie;
   }
+  
+  public Breuvage(int idBrevage){
+	  this.idBreuvage=idBreuvage;
+	  }
   
   public Breuvage(){}
   	/**
@@ -181,7 +185,7 @@ public class Breuvage {
 	**/
 	public int getId()
 	{
-		return idBrevage;
+		return idBreuvage;
 	}
 	
 		/**

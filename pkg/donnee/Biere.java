@@ -120,67 +120,67 @@ public class Biere {
 	public void setidBreuvage(int idBreuvage) {}
     
 	public void setNom(String value, DAO<Biere> BieresDao) {
-		BieresDao.update("breuvage", "nom", (String)value, this.getidBreuvage());
+		BieresDao.update("Breuvage", "nom", "'"+value+"'", this.getidBreuvage());
 	}
 	
 	public void setAlcool(float value, DAO<Biere> BieresDao) {
-		BieresDao.update("breuvage", "alcool", (float)value, this.getidBreuvage());
+		BieresDao.update("Breuvage", "alcool", (float)value, this.getidBreuvage());
     }
     
 	public void setTypefermentation(String value, DAO<Biere> BieresDao) {
-		BieresDao.update("breuvage", "typefermentation", (String)value, this.getidBreuvage());
+		BieresDao.update("Breuvage", "typefermentation", "'"+value+"'", this.getidBreuvage());
     }
     
 	public void setParticularite(String value, DAO<Biere> BieresDao) {
-        BieresDao.update("breuvage", "particularite", (String)value, this.getidBreuvage());
+        BieresDao.update("Breuvage", "particularite", "'"+value+"'", this.getidBreuvage());
     }
 	
 	public void setCouleur(String value, DAO<Biere> BieresDao) {
-        BieresDao.update("breuvage", "couleur", (String)value, this.getidBreuvage());
+        BieresDao.update("Breuvage", "couleur", "'"+value+"'", this.getidBreuvage());
     }
     
 	public void setAnnee(int value, DAO<Biere> BieresDao) {
-        BieresDao.update("breuvage", "annee", (int)value, this.getidBreuvage());
+        BieresDao.update("Breuvage", "annee", (int)value, this.getidBreuvage());
     }
     
 	public void setNote(int value, DAO<Biere> BieresDao) {
-        BieresDao.update("breuvage", "note", (int)value, this.getidBreuvage());
+        BieresDao.update("Breuvage", "note", (int)value, this.getidBreuvage());
     }
     
 	public void setCommentaire(String value, DAO<Biere> BieresDao) {
-        BieresDao.update("breuvage", "commentaire", (String)value, this.getidBreuvage());
+        BieresDao.update("Breuvage", "commentaire",  "'"+value+"'", this.getidBreuvage());
     }
     
 	public void setidBouteille(int value, DAO<Biere> BieresDao) {
-        BieresDao.update("breuvage", "idBouteille", (int)value, this.getidBreuvage());
+        BieresDao.update("Breuvage", "idBouteille", (int)value, this.getidBreuvage());
     }
     
 	public void setidBrasserie(int value, DAO<Biere> BieresDao) {
-        BieresDao.update("breuvage", "idBrasserie", (int)value, this.getidBreuvage());
+        BieresDao.update("Breuvage", "idBrasserie", (int)value, this.getidBreuvage());
     }
     
 	public void setNomBrasserie(String value, DAO<Biere> BieresDao) {
-        BieresDao.update("brasserie", "nomBrasserie", (String)value, this.getidBrasserie());
+        BieresDao.update("Brasserie", "nomBrasserie", "'"+value+"'", this.getidBrasserie());
     }
     
 	public void setVille(String value, DAO<Biere> BieresDao) {
-        BieresDao.update("brasserie", "ville", (String)value, this.getidBrasserie());
+        BieresDao.update("brasserie", "ville", "'"+value+"'", this.getidBrasserie());
     }
     
 	public void setPays(String value, DAO<Biere> BieresDao) {
-        BieresDao.update("brasserie", "pays", (String)value, this.getidBrasserie());
+        BieresDao.update("Brasserie", "pays", "'"+value+"'", this.getidBrasserie());
     }
 	
 	public void setTaille(int value, DAO<Biere> BieresDao) {
-        BieresDao.update("bouteille", "taille", (int)value, this.getidBouteille());
+        BieresDao.update("Bouteille", "taille", (int)value, this.getidBouteille());
     }
     
 	public void setFormat(String value, DAO<Biere> BieresDao) {
-        BieresDao.update("bouteille", "format", (String)value, this.getidBouteille());
+        BieresDao.update("Bouteille", "format",  "'"+value+"'", this.getidBouteille());
     }
     
 	public void setBouchon(String value, DAO<Biere> BieresDao) {
-        BieresDao.update("bouteille", "bouchon", (String)value, this.getidBouteille());
+        BieresDao.update("Bouteille", "bouchon", "'"+value+"'", this.getidBouteille());
     }
     
     public String toString() {
