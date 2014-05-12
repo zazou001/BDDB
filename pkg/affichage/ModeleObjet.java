@@ -67,53 +67,66 @@ public class ModeleObjet extends AbstractTableModel {
         }
     }
     
-	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+		public void setValueAt(String aValue, int rowIndex, int columnIndex) {
 		if(aValue != null){
             switch(columnIndex){
                 case 0:
-                    bieres.get(rowIndex).setNom((String)aValue, BieresDao);
+                    bieres.get(rowIndex).setNom(aValue, BieresDao);
                     bieres = BieresDao.findAll();
-                    break;
-                case 1:
-					bieres.get(rowIndex).setAlcool((float)aValue, BieresDao);
-                   bieres = BieresDao.findAll();
                     break;
                 case 2:
-                    bieres.get(rowIndex).setCouleur((String)aValue, BieresDao);
-                    bieres = BieresDao.findAll();
-                    break;
-                case 3:
-                		System.out.println("salut");
-                    bieres.get(rowIndex).setAnnee((int) aValue, BieresDao);
+                    bieres.get(rowIndex).setCouleur(aValue, BieresDao);
                     bieres = BieresDao.findAll();
                     break;
                 case 4:
-                    bieres.get(rowIndex).setNomBrasserie((String)aValue, BieresDao);
+                    bieres.get(rowIndex).setNomBrasserie(aValue, BieresDao);
                     bieres = BieresDao.findAll();
                     break;
                 case 5:
-					bieres.get(rowIndex).setPays((String)aValue, BieresDao);
+					bieres.get(rowIndex).setPays(aValue, BieresDao);
 					bieres = BieresDao.findAll();
 					break;
 				case 6:
-					bieres.get(rowIndex).setTypefermentation((String)aValue, BieresDao);
+					bieres.get(rowIndex).setTypefermentation(aValue, BieresDao);
 					bieres = BieresDao.findAll();
 					break;
 				case 7:
-					bieres.get(rowIndex).setFormat((String)aValue, BieresDao);
+					bieres.get(rowIndex).setFormat(aValue, BieresDao);
 					bieres = BieresDao.findAll();
-				case 8:
-					bieres.get(rowIndex).setTaille((int) aValue, BieresDao);
+				case 9:
+					bieres.get(rowIndex).setBouchon(aValue, BieresDao);
 					bieres = BieresDao.findAll();
 					break;
-				case 9:
-					bieres.get(rowIndex).setBouchon((String)aValue, BieresDao);
+            }
+        }
+    }
+    
+    	public void setValueAt(int aValue, int rowIndex, int columnIndex) {
+		if(aValue < 0){
+            switch(columnIndex){
+                case 3:
+                    bieres.get(rowIndex).setAnnee(aValue, BieresDao);
+                    bieres = BieresDao.findAll();
+                    break;
+				case 8:
+					bieres.get(rowIndex).setTaille(aValue, BieresDao);
 					bieres = BieresDao.findAll();
 					break;
 				case 10:
-					bieres.get(rowIndex).setNote((int) aValue, BieresDao);
+					bieres.get(rowIndex).setNote(aValue, BieresDao);
 					bieres = BieresDao.findAll();
 					break;
+            }
+        }
+    }
+    
+        	public void setValueAt(float aValue, int rowIndex, int columnIndex) {
+		if(aValue < 0){
+            switch(columnIndex){
+                case 1:
+					bieres.get(rowIndex).setAlcool(aValue, BieresDao);
+                   bieres = BieresDao.findAll();
+                    break;
             }
         }
     }
